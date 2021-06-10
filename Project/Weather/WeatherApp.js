@@ -5,6 +5,7 @@ import Input from "./Input";
 import Forecast from "./Forecast";
 import OpenWeatherMap from "./open_weather_map";
 import PressButton from "../PressButton";
+import LocationButton from './LocationButton'
 
 const WeatherApp = () => {
   const [zip, setZip] = useState("");
@@ -49,7 +50,7 @@ const WeatherApp = () => {
         </View>
       </ImageBackground>
 
-      <PressButton />
+      <LocationButton />
     </View>
   );
 };
