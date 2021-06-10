@@ -66,6 +66,7 @@ const MainApp = () => {
           todos={todos}
           deleteTodo={DeleteTodo}
           toggleComplete={ToggleComplete}
+          setType={SetType}
         />
         <Button submitTodo={submitTodo} />
       </ScrollView>
