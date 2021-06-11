@@ -1,11 +1,11 @@
 import React from "react";
 import { StyleSheet, Text, View, FlatList } from "react-native";
 import { useSelector } from "react-redux";
-import { citiesData } from "../features/citySlice";
+import { cityData } from "../features/citySlice";
 import Item from "../component/item";
 
 function Cities() {
-  const CitiesList = useSelector(citiesData);
+  const CitiesList = useSelector(cityData);
 
   console.log(CitiesList);
 
