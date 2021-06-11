@@ -4,11 +4,14 @@ import { useSelector } from "react-redux";
 import { cityData } from "../features/citySlice";
 import Item from "../component/item";
 import AddLocation from "../AddLocation";
+import { useRoute } from "@react-navigation/native";
 
 function City() {
+  const route = useRoute();
+
   return (
     <View>
-      <AddLocation />
+      <AddLocation city={route.params.city} />
     </View>
   );
 }
