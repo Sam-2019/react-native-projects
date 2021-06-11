@@ -1,31 +1,33 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, FlatList } from "react-native";
 import { useSelector } from "react-redux";
 import { citiesData } from "../features/citySlice";
-import ListItem from "../ListItem";
+import Item from "../component/item";
 
 function Cities() {
-  const listCities = useSelector(citiesData);
+  const CitiesList = useSelector(citiesData);
 
-  // console.log(listCities)
+  console.log(CitiesList);
 
-  // if (!listCities) {
-  //   return (
-  //     <View style={styles.empty_container}>
-  //       <Text>No entry yet!</Text>
+  if (CitiesList.length === 0) {
+    return (
+      <View style={styles.empty_container}>
+        <Text>No entry yet!</Text>
+      </View>
+    );
+  }
 
-  //     </View>
-  //   );
-  // }
+  const renderItem = ({ item }) => (
+    <Item text={item.city} subText={item.country} />
+  );
 
   return (
     <View>
-      <View style={styles.header}>
-        <Text style={styles.header_text}>Cities</Text>
-      </View>
-
-      {/* <View>{listCities}</View> */}
-   
+      <FlatList
+        data={CitiesList}
+        renderItem={renderItem}
+        keyExtractor={(item) => item.id}
+      />
     </View>
   );
 }
