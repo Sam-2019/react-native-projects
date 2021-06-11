@@ -7,8 +7,6 @@ import Item from "../component/item";
 function Cities() {
   const CitiesList = useSelector(cityData);
 
-  console.log(CitiesList);
-
   if (CitiesList.length === 0) {
     return (
       <View style={styles.empty_container}>
