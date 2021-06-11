@@ -2,11 +2,12 @@ import { createSlice } from "@reduxjs/toolkit";
 
 export const citiesSlice = createSlice({
   name: "cities",
-  initialState: [],
+  initialState: [
+    
+  ],
   reducers: {
     addCity: (state, action) => {
-      const newCities = [...state, action.payload];
-      return newCities;
+      return state.concat(action.payload);
     },
   },
 });
