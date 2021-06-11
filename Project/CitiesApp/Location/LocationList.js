@@ -26,7 +26,7 @@ function LocationList() {
   }
 
   const renderItem = ({ item }) => (
-    <Item text={item.location} subText={item.info} />
+    <Item text={item.location} subText={item.info} pressable={false} />
   );
 
   if (filterLocation.length > 0) {
