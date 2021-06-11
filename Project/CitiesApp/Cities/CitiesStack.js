@@ -9,7 +9,8 @@ function CitiesStack() {
   return (
     <Stack.Navigator initialRouteName="Cities">
       <Stack.Screen name="Cities" component={Cities} />
-      <Stack.Screen name="City" component={City} options={{ title: "City" }} />
+      <Stack.Screen name="City" component={City} 
+          options={({ route }) => ({ title: route.params.city })} />
     </Stack.Navigator>
   );
 }
