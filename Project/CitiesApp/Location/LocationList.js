@@ -1,38 +1,39 @@
 import React from "react";
-import { StyleSheet, Text, View, FlatList } from "react-native";
+import { ScrollView, StyleSheet, Text, View, FlatList } from "react-native";
 import { useSelector } from "react-redux";
-import { cityData } from "../features/citySlice";
+import { locationData } from "../features/locationSlice";
 import Item from "../component/item";
 
-function Cities() {
-  const CitiesList = useSelector(cityData);
+function Locations() {
+  const LocationList = useSelector(locationData);
+  let view;
 
-  console.log(CitiesList);
-
-  if (CitiesList.length === 0) {
-    return (
+  if (LocationList.length === 0) {
+    view = (
       <View style={styles.empty_container}>
-        <Text>No entry yet!</Text>
+        <Text style={styles.empty_text}>No location for this city yet!</Text>
       </View>
     );
   }
 
   const renderItem = ({ item }) => (
-    <Item text={item.city} subText={item.country} />
+    <Item text={item.city} subText={item.info} />
   );
 
-  return (
-    <View>
+  if (LocationList.length > 0) {
+    view = (
       <FlatList
-        data={CitiesList}
+        data={LocationList}
         renderItem={renderItem}
         keyExtractor={(item) => item.id}
       />
-    </View>
-  );
+    );
+  }
+
+  return <ScrollView>{view}</ScrollView>;
 }
 
-export default Cities;
+export default Locations;
 
 const styles = StyleSheet.create({
   container: {
@@ -44,6 +45,9 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
+  },
+  empty_text: {
+    fontSize: 20,
   },
   header: {
     flex: 1,

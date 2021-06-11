@@ -1,7 +1,7 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import AddCity from "./AddCity";
-import CitiesStack from "./Cities/CitiesStack";
+import AddCity from "../CitiesApp/City/AddCity";
+import CitiesStack from "./City/CityStack";
 
 const Tab = createBottomTabNavigator();
 

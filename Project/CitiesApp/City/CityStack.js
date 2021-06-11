@@ -5,14 +5,17 @@ import City from "./City";
 
 const Stack = createStackNavigator();
 
-function CitiesStack() {
+function CityStack() {
   return (
     <Stack.Navigator initialRouteName="Cities">
       <Stack.Screen name="Cities" component={Cities} />
-      <Stack.Screen name="City" component={City} 
-          options={({ route }) => ({ title: route.params.city })} />
+      <Stack.Screen
+        name="City"
+        component={City}
+        options={({ route }) => ({ title: route.params.city })}
+      />
     </Stack.Navigator>
   );
 }
 
-export default CitiesStack;
+export default CityStack;

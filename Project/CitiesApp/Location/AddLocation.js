@@ -1,46 +1,47 @@
 import * as React from "react";
 import { StyleSheet, View, Text } from "react-native";
+
 import { v4 as uuidv4 } from "uuid";
 import { TextInput, Button } from "react-native-paper";
 import { useDispatch } from "react-redux";
-import { addCity } from "./features/citySlice";
+import { addLocation } from "../features/locationSlice";
 
-const AddCity = () => {
-  const [city, setCity] = React.useState("");
-  const [country, setCountry] = React.useState("");
+const AddLocation = ({ city }) => {
+  const [name, setName] = React.useState("");
+  const [info, setInfo] = React.useState("");
+  const grabCity = city
 
   const dispatch = useDispatch();
 
   function add() {
     const entry = {
       id: uuidv4(),
-      city,
-      country,
+      name,
+      info,
+      city: grabCity
     };
 
-    dispatch(addCity(entry));
+    console.log(entry)
 
-    setCity("");
-    setCountry("");
+    dispatch(addLocation(entry));
+
+    setName("");
+    setInfo("");
   }
 
   return (
     <View style={styles.container}>
-      <View style={styles.header}>
-        <Text style={styles.header_text}>Cities</Text>
-      </View>
-
       <View>
         <TextInput
-          label="Name"
-          value={city}
-          onChangeText={(city) => setCity(city)}
+          label="Location Name"
+          value={name}
+          onChangeText={(name) => setName(name)}
         />
 
         <TextInput
-          label="Country"
-          value={country}
-          onChangeText={(country) => setCountry(country)}
+          label="Location Info"
+          value={info}
+          onChangeText={(info) => setInfo(info)}
         />
       </View>
 
@@ -53,7 +54,7 @@ const AddCity = () => {
   );
 };
 
-export default AddCity;
+export default AddLocation;
 
 const styles = StyleSheet.create({
   container: {
