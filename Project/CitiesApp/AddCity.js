@@ -2,7 +2,7 @@ import * as React from "react";
 import { StyleSheet, View, Text } from "react-native";
 import { v4 as uuidv4 } from "uuid";
 import { TextInput, Button } from "react-native-paper";
-import { useSelector } from "react-redux";
+import { useDispatch  } from "react-redux";
 import { addCity } from "./features/citySlice";
 
 const AddCity = () => {
@@ -11,16 +11,17 @@ const AddCity = () => {
 
   const dispatch = useDispatch();
 
-  function addCity() {
+  function add() {
     const entry = {
       id: uuidv4(),
       city,
       country,
     };
 
-    dispatch(increment(entry));
+    dispatch(addCity(entry));
 
     setCity("");
+    setCountry("");
   }
 
   return (
@@ -43,7 +44,7 @@ const AddCity = () => {
         />
       </View>
 
-      <Button mode="contained" onPress={addCity}>
+      <Button mode="contained" onPress={add}>
         Press me
       </Button>
     </View>
