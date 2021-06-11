@@ -6,13 +6,14 @@ import { useRoute } from "@react-navigation/native";
 
 function City() {
   const route = useRoute();
+  const city = route.params.city;
 
   return (
     <View style={styles.container}>
       <Locations />
 
       <View style={styles.location_form}>
-        <AddLocation city={route.params.city} />
+        <AddLocation city={city} />
       </View>
     </View>
   );
