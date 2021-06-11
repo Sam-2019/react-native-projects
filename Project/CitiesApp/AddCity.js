@@ -2,7 +2,7 @@ import * as React from "react";
 import { StyleSheet, View, Text } from "react-native";
 import { v4 as uuidv4 } from "uuid";
 import { TextInput, Button } from "react-native-paper";
-import { useDispatch  } from "react-redux";
+import { useDispatch } from "react-redux";
 import { addCity } from "./features/citySlice";
 
 const AddCity = () => {
@@ -26,8 +26,8 @@ const AddCity = () => {
 
   return (
     <View style={styles.container}>
-      <View>
-        <Text>Cities</Text>
+      <View style={styles.header}>
+        <Text style={styles.header_text}>Cities</Text>
       </View>
 
       <View>
@@ -44,9 +44,11 @@ const AddCity = () => {
         />
       </View>
 
-      <Button mode="contained" onPress={add}>
-        Press me
-      </Button>
+      <View style={styles.button}>
+        <Button mode="contained" onPress={add}>
+          Submit
+        </Button>
+      </View>
     </View>
   );
 };
@@ -64,5 +66,14 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
+  },
+  header: {
+    alignSelf: "center",
+  },
+  header_text: {
+    fontSize: 50,
+  },
+  button: {
+    marginTop: 10,
   },
 });
