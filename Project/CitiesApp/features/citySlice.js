@@ -10,7 +10,7 @@ export const citySlice = createSlice({
   },
 });
 
-export const { addCity } = citiesSlice.actions;
+export const { addCity } = citySlice.actions;
 
 export const cityData = (state) => state.cities;
 
