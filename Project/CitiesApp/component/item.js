@@ -2,7 +2,7 @@ import React from "react";
 import { StyleSheet, Text, View, Pressable } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
-const Item = ({ text, subText }) => {
+const Item = ({ text, subText, pressable }) => {
   const navigation = useNavigation();
 
   const onPress = () => {
@@ -13,7 +13,7 @@ const Item = ({ text, subText }) => {
 
   return (
     <View style={styles.container}>
-      <Pressable onPress={onPress}>
+      <Pressable onPress={pressable ? onPress : null}>
         <View>
           <Text style={styles.text}>{text}</Text>
           <Text style={styles.subText}>{subText}</Text>
