@@ -1,20 +1,26 @@
 import * as React from "react";
 import { StyleSheet, View, Text } from "react-native";
+
 import { v4 as uuidv4 } from "uuid";
 import { TextInput, Button } from "react-native-paper";
 import { useDispatch } from "react-redux";
-import { addCity } from "./features/citySlice";
+import { addLocation } from "./features/locationSlice";
 
-const AddLocation = () => {
+const AddLocation = ({ city }) => {
   const [name, setName] = React.useState("");
   const [info, setInfo] = React.useState("");
+
+  const dispatch = useDispatch();
 
   function add() {
     const entry = {
       id: uuidv4(),
       name,
       info,
+      city,
     };
+
+    dispatch(addLocation(entry));
 
     setName("");
     setInfo("");
