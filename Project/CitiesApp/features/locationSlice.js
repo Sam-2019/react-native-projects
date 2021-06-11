@@ -4,7 +4,7 @@ export const locationSlice = createSlice({
   name: "locations",
   initialState: [],
   reducers: {
-    addCity: (state, action) => {
+    addLocation: (state, action) => {
       return state.concat(action.payload);
     },
   },
