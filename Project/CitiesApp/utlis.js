@@ -5,3 +5,7 @@ export const addKeysToBooks = (books) => {
     return Object.assign({ key: uuidv4(), name: book });
   });
 };
+
+export const FilterData = (data, id) => {
+  return data.filter((result) => result.city === id);
+};
