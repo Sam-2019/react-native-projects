@@ -2,13 +2,22 @@ import React from "react";
 import { ScrollView, StyleSheet, Text, View, FlatList } from "react-native";
 import { useSelector } from "react-redux";
 import { locationData } from "../features/locationSlice";
+import { cityData } from "../features/citySlice";
+import { FilterData } from "../utlis";
+import { useRoute } from "@react-navigation/native";
 import Item from "../component/item";
 
-function Locations() {
+function LocationList() {
+  const route = useRoute();
   const LocationList = useSelector(locationData);
+
+  const city = route.params.city;
+
+  const filterLocation = FilterData(LocationList, city);
+
   let view;
 
-  if (LocationList.length === 0) {
+  if (filterLocation.length === 0) {
     view = (
       <View style={styles.empty_container}>
         <Text style={styles.empty_text}>No location for this city yet!</Text>
@@ -17,13 +26,13 @@ function Locations() {
   }
 
   const renderItem = ({ item }) => (
-    <Item text={item.city} subText={item.info} />
+    <Item text={item.location} subText={item.info} />
   );
 
-  if (LocationList.length > 0) {
+  if (filterLocation.length > 0) {
     view = (
       <FlatList
-        data={LocationList}
+        data={filterLocation}
         renderItem={renderItem}
         keyExtractor={(item) => item.id}
       />
@@ -33,7 +42,7 @@ function Locations() {
   return <ScrollView>{view}</ScrollView>;
 }
 
-export default Locations;
+export default LocationList;
 
 const styles = StyleSheet.create({
   container: {
