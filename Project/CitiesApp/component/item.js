@@ -1,16 +1,25 @@
 import React from "react";
-import { StyleSheet, Text, View, TouchableHighlight } from "react-native";
+import { StyleSheet, Text, View, Pressable } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
 const Item = ({ text, subText }) => {
   const navigation = useNavigation();
+
+  const onPress = () => {
+    navigation.navigate("City", {
+      city: text,
+    });
+  };
+
   return (
-    <TouchableHighlight onPress={() => navigation.navigate("City")}>
-      <View style={styles.container}>
-        <Text style={styles.text}>{text}</Text>
-        <Text style={styles.subText}>{subText}</Text>
-      </View>
-    </TouchableHighlight>
+    <View style={styles.container}>
+      <Pressable onPress={onPress}>
+        <View>
+          <Text style={styles.text}>{text}</Text>
+          <Text style={styles.subText}>{subText}</Text>
+        </View>
+      </Pressable>
+    </View>
   );
 };
 
