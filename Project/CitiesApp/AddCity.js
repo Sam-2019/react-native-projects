@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
     alignSelf: "center",
   },
   header_text: {
-    fontSize: 50,
+    fontSize: 30,
   },
   button: {
     marginTop: 10,
