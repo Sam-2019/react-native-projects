@@ -1,5 +1,11 @@
 import React from "react";
-import { StyleSheet, Text, View, FlatList, ScrollView, Pressable } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  FlatList,
+  ScrollView
+} from "react-native";
 import { useSelector } from "react-redux";
 import { cityData } from "../features/citySlice";
 import Item from "../component/item";
