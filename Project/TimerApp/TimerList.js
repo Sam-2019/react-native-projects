@@ -3,16 +3,16 @@ import { ScrollView, StyleSheet, View, FlatList } from "react-native";
 import TimerContainer from "./TimerContainer";
 
 const data = [
-  // {
-  //   id: 0,
-  //   task: "Clean House",
-  //   bucket: "House Chore",
-  // },
-  // {
-  //   id: 1,
-  //   task: "Clean Car",
-  //   bucket: "Car Chore",
-  // },
+  {
+    id: 0,
+    task: "Clean House",
+    bucket: "House Chore",
+  },
+  {
+    id: 1,
+    task: "Clean Car",
+    bucket: "Car Chore",
+  },
 ];
 
 const TimerList = () => {
@@ -22,13 +22,11 @@ const TimerList = () => {
 
   return (
     <ScrollView>
-      <View>
-        <FlatList
-          data={data}
-          renderItem={renderItem}
-          keyExtractor={(item) => item.id}
-        />
-      </View>
+      <FlatList
+        data={data}
+        renderItem={renderItem}
+        keyExtractor={(item) => item.id}
+      />
     </ScrollView>
   );
 };
