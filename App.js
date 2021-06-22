@@ -3,7 +3,6 @@ import * as React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { DefaultTheme, Provider as PaperProvider } from "react-native-paper";
 import NavigationApp from "./Project/CitiesApp/Main";
-import Timer from "./Project/TimerApp/Timer";
 import store from "./store";
 import { Provider } from "react-redux";
 
@@ -29,5 +28,5 @@ function MainCity() {
 }
 
 export default function App() {
-  return <Timer />;
+  return <MainCity />;
 }
