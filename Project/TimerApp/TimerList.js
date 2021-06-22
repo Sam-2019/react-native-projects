@@ -17,7 +17,7 @@ const data = [
 
 const TimerList = () => {
   const renderItem = ({ item }) => (
-    <TimerContainer text={item.task} subText={item.bucket} />
+    <TimerContainer text={item.task} subtext={item.bucket} />
   );
 
   return (
