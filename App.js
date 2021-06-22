@@ -2,7 +2,7 @@ import "react-native-gesture-handler";
 import * as React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { DefaultTheme, Provider as PaperProvider } from "react-native-paper";
-import NavigationApp from "./Project/CitiesApp/Main";
+import NavigationApp from "./Project/Main";
 import store from "./store";
 import { Provider } from "react-redux";
 
