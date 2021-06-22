@@ -2,9 +2,10 @@ import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 
 const Time = () => {
+
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>{Date.now()}</Text>
+      <Text style={styles.text}>12:00 pm</Text>
     </View>
   );
 };
